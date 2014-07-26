@@ -30,395 +30,394 @@
         </div>
     </header>
     <section class="wrapper">
-        <div style="padding:10px">
-            <div class="table" id="article_loaderMod">
-                <a href="../tutorials/drag-and-drop.html">
-                    <h3>Drag and Drop API</h3>
-                </a>
-                <div class="tr" style="text-align:justify">
-                    <style type="text/css">
-                        div#eg_box {
-                            width: 100px;
-                            height: 100px;
-                            display: block;
-                            border: 5px solid #FF0000;
-                        }
-                        span.eg_image {
-                            width: 100px;
-                            height: 100px;
-                            display: inline-block;
-                            border: 5px solid #FFF;
-                        }
-                        div#eg_box_file {
-                            width: 300px;
-                            height: 200px;
-                            display: block;
-                            border: 5px solid #FF0000;
-                        }
-                    </style>
+        <div class="table" id="article_loaderMod">
+            <a href="../tutorials/drag-and-drop.html">
+                <h3>Drag and Drop API</h3>
+            </a>
+            <div class="tr" style="text-align:justify">
+                <style type="text/css">
+                    div#eg_box {
+                        width: 100px;
+                        height: 100px;
+                        display: block;
+                        border: 5px solid #FF0000;
+                    }
+                    span.eg_image {
+                        width: 100px;
+                        height: 100px;
+                        display: inline-block;
+                        border: 5px solid #FFF;
+                    }
+                    div#eg_box_file {
+                        width: 300px;
+                        height: 200px;
+                        display: block;
+                        border: 5px solid #FF0000;
+                    }
+                </style>
 
-                    <p>When Drag and Drop API is introduced in HTML5 to community, it have been amazing developers and designers because of its ability to UI experience.</p>
-                    <p>In a decade ago, dragging and dropping something in a webpage was impossible. People tried really hard to operating applications on a website as same as on a desktop. As we see, the process of technologies such as AJAX technologies and Jquery have been dominated in past few years because they provides such an easy way for users to interact with internet. Now, dragging and dropping on a webpage is just a piece of cake for HTML5.</p>
-                    <p>At first, I want you to know that HTML5 api is not fully support for all browsers. Fortunately, one of popular libraries used for dectecting api support is Modernizr (http://www.modernizr.com/).</p>
-                    Here is a basic use to detect Drag and Drop API
-                    <pre class="code">
-    if (Modernizr.draganddrop) {
-    //support  -- bind to api events 
-    } else {
-    //no support -- your solution
-    }
-    </pre>
-                    <h1>Brief reference for Drag and Drop API</h1>
-                    <table border="1">
-                        <!-- EVENT -->
-                        <tr>
-                            <th>Event</th>
-                            <th>Trigger Condition</th>
-                        </tr>
-                        <tr>
-                            <td>dragstart</td>
-                            <td>when initiate start dragging</td>
-                        </tr>
-                        <tr>
-                            <td>drag</td>
-                            <td>while dragging</td>
-                        </tr>
-                        <tr>
-                            <td>dragenter</td>
-                            <td>when the mouse enters an elelemnt's area. Use <i>preventDefault()</i> to prevent navigating the browser to its link</td>
-                        </tr>
-                        <tr>
-                            <td>dragover</td>
-                            <td>when the mouse moves over an elelemnt's area. Use <i>preventDefault()</i> to prevent navigating the browser to its link</td>
-                        </tr>
-                        <tr>
-                            <td>dragleave</td>
-                            <td>when the mouse leave an elelemnt's area</td>
-                        </tr>
-                        <tr>
-                            <td>drop</td>
-                            <td>when drop element. Use <i>preventDefault()</i> to prevent navigating the browser to its link</td>
-                        </tr>
-                        <tr>
-                            <td>dragend</td>
-                            <td>when drop successful or drag cancelled</td>
-                        </tr>
-                    </table>
-                    <!-- METHOD -->
-                    <table border="1">
-                        <tr>
-                            <th>Method</th>
-                            <th>Parameter</th>
-                            <th>Description</th>
-                        </tr>
-                        <tr>
-                            <td>setData</td>
-                            <td>
-                                type : any regular data type such as <i>text/plain</i> or <i>text/html</i>
-                                <br/>data : data sent
-                            </td>
-                            <td>prepare data to send when a <i>dragstart</i> is triggered</td>
-                        </tr>
-                        <tr>
-                            <td>getData</td>
-                            <td>
-                                type : data type
-                            </td>
-                            <td>used when a <i>drop</i> is triggered</td>
-                        </tr>
-                        <tr>
-                            <td>clearData</td>
-                            <td>
-                                type : data type
-                            </td>
-                            <td>remove data with a specified data type</td>
-                        </tr>
-                        <tr>
-                            <td>setDragImage</td>
-                            <td>
-                                element : a <i>&ltimg&gt</i> element
-                                <br/>x : x-value of a point
-                                <br/>y : y-value of a point
-                            </td>
-                            <td>set a thumbnais with a (x,y) position point of a specified <i>&ltimg&gt</i> element appear relative to position of the mouse's pointer.</td>
-                        </tr>
-                    </table>
-                    <!-- Properties of dataTransfer Object -->
-                    <table border="1">
-                        <tr>
-                            <th><i>dataTransfer</i>'s tranfer</th>
-                            <th>Return</th>
-                        </tr>
-                        <tr>
-                            <td>types</td>
-                            <td>array of all types set</td>
-                        </tr>
-                        <tr>
-                            <td>files</td>
-                            <td>array of files dragged</td>
-                        </tr>
-                        <tr>
-                            <td>dropEffect</td>
-                            <td>type of operation selected [none | copy | link | move]. It can be set to change.</td>
-                        </tr>
-                        <tr>
-                            <td>effectAllowed</td>
-                            <td>type of operation allowed [none | copy | link | move]. It can be set to change.</td>
-                        </tr>
-                    </table>
-                    <h1>Also, a Quick Reference for Javascript in HTML5</h1>
-                    <ul>
-                        <li>Declare javascript by a simply call : <i>&ltscript&gt></i>
-                        </li>
-                        <li>New query methods including
-                            <ul>
-                                <li><i>getElementByClassName(classname)</i>	return all element has classes with a name specified</li>
-                                <li><i>querySelector(selectors)</i>	return the first element which matches with specified selectors</li>
-                                <li><i>querySelectorAll(selectors)</i>	return all elements wchich match with specified selectors</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <h1>Now Feel it! Drag any image below into a box</h1>
-                    <!-- DRAG IMAGE INTO A BOX -->
-                    <div id="eg_box">Drag any image below to this box</div>
-                    <span id="eg_bg1"><img src="../images/bg1.png" alt=""></span>
-                    <span id="eg_bg2"><img src="../images/bg2.png" alt=""></span>
-                    <span id="eg_bg3"><img src="../images/bg3.png" alt=""></span>
-                    <h1>How I do it</h1>
-                    <p><b>Create a content</b>
-                    </p>
-                    <pre class="code">
-    &ltstyle type="text/css"&gt
-    div#eg_box 
-    {
-    width:100px;
-    height:100px;
-    display:block;
-    border:5px solid #FF0000;	
-    }
-    &lt/style&gt
-    &ltdiv id="eg_box"&gtDrag image below to this box&lt/div&gt
-    &ltspan id="eg_bg1"&gt&ltimg src="bg1.png" alt=""&gt&lt/span&gt
-    &ltspan id="eg_bg2"&gt&ltimg src="bg2.png" alt=""&gt&lt/span&gt
-    &ltspan id="eg_bg3"&gt&ltimg src="bg3.png" alt=""&gt&lt/span&gt
-    </pre>
-                    <p><b>Force elements to listen events</b>
-                    </p>
-                    <pre class="code">
-    &ltscript&gt
-    window.addEventListener('load',onload,false);
-    function onLoad(e){
-    b1=document.getElementById('eg_bg1');
-    b2=document.getElementById('eg_bg2');
-    b3=document.getElementById('eg_bg3');
-    box=document.getElementById('eg_box');
-    b1.addEventListener('dragstart',dragstart, false);
-    b2.addEventListener('dragstart',dragstart, false);
-    b3.addEventListener('dragstart',dragstart, false);	
-    box.addEventListener('dragenter',function(e){e.preventDefault()}, false);
-    box.addEventListener('dragover',function(e){e.preventDefault()}, false);
-    box.addEventListener('drop',dropped, false);
-    }
-    function dragstart(e){
-    var value=e.currentTarget.innerHTML;
-    e.dataTransfer.setData('text',value);
-    }
+                <p>When Drag and Drop API is introduced in HTML5 to community, it have been amazing developers and designers because of its ability to UI experience.</p>
+                <p>In a decade ago, dragging and dropping something in a webpage was impossible. People tried really hard to operating applications on a website as same as on a desktop. As we see, the process of technologies such as AJAX technologies and Jquery have been dominated in past few years because they provides such an easy way for users to interact with internet. Now, dragging and dropping on a webpage is just a piece of cake for HTML5.</p>
+                <p>At first, I want you to know that HTML5 api is not fully support for all browsers. Fortunately, one of popular libraries used for dectecting api support is Modernizr (http://www.modernizr.com/).</p>
+                Here is a basic use to detect Drag and Drop API
+                <pre class="code">
+if (Modernizr.draganddrop) {
+//support  -- bind to api events 
+} else {
+//no support -- your solution
+}
+</pre>
+                <h1>Brief reference for Drag and Drop API</h1>
+                <table border="1">
+                    <!-- EVENT -->
+                    <tr>
+                        <th>Event</th>
+                        <th>Trigger Condition</th>
+                    </tr>
+                    <tr>
+                        <td>dragstart</td>
+                        <td>when initiate start dragging</td>
+                    </tr>
+                    <tr>
+                        <td>drag</td>
+                        <td>while dragging</td>
+                    </tr>
+                    <tr>
+                        <td>dragenter</td>
+                        <td>when the mouse enters an elelemnt's area. Use <i>preventDefault()</i> to prevent navigating the browser to its link</td>
+                    </tr>
+                    <tr>
+                        <td>dragover</td>
+                        <td>when the mouse moves over an elelemnt's area. Use <i>preventDefault()</i> to prevent navigating the browser to its link</td>
+                    </tr>
+                    <tr>
+                        <td>dragleave</td>
+                        <td>when the mouse leave an elelemnt's area</td>
+                    </tr>
+                    <tr>
+                        <td>drop</td>
+                        <td>when drop element. Use <i>preventDefault()</i> to prevent navigating the browser to its link</td>
+                    </tr>
+                    <tr>
+                        <td>dragend</td>
+                        <td>when drop successful or drag cancelled</td>
+                    </tr>
+                </table>
+                <!-- METHOD -->
+                <table border="1">
+                    <tr>
+                        <th>Method</th>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>setData</td>
+                        <td>
+                            type : any regular data type such as <i>text/plain</i> or <i>text/html</i>
+                            <br/>data : data sent
+                        </td>
+                        <td>prepare data to send when a <i>dragstart</i> is triggered</td>
+                    </tr>
+                    <tr>
+                        <td>getData</td>
+                        <td>
+                            type : data type
+                        </td>
+                        <td>used when a <i>drop</i> is triggered</td>
+                    </tr>
+                    <tr>
+                        <td>clearData</td>
+                        <td>
+                            type : data type
+                        </td>
+                        <td>remove data with a specified data type</td>
+                    </tr>
+                    <tr>
+                        <td>setDragImage</td>
+                        <td>
+                            element : a <i>&ltimg&gt</i> element
+                            <br/>x : x-value of a point
+                            <br/>y : y-value of a point
+                        </td>
+                        <td>set a thumbnais with a (x,y) position point of a specified <i>&ltimg&gt</i> element appear relative to position of the mouse's pointer.</td>
+                    </tr>
+                </table>
+                <!-- Properties of dataTransfer Object -->
+                <table border="1">
+                    <tr>
+                        <th><i>dataTransfer</i>'s tranfer</th>
+                        <th>Return</th>
+                    </tr>
+                    <tr>
+                        <td>types</td>
+                        <td>array of all types set</td>
+                    </tr>
+                    <tr>
+                        <td>files</td>
+                        <td>array of files dragged</td>
+                    </tr>
+                    <tr>
+                        <td>dropEffect</td>
+                        <td>type of operation selected [none | copy | link | move]. It can be set to change.</td>
+                    </tr>
+                    <tr>
+                        <td>effectAllowed</td>
+                        <td>type of operation allowed [none | copy | link | move]. It can be set to change.</td>
+                    </tr>
+                </table>
+                <h1>Also, a Quick Reference for Javascript in HTML5</h1>
+                <ul>
+                    <li>Declare javascript by a simply call : <i>&ltscript&gt></i>
+                    </li>
+                    <li>New query methods including
+                        <ul>
+                            <li><i>getElementByClassName(classname)</i>	return all element has classes with a name specified</li>
+                            <li><i>querySelector(selectors)</i>	return the first element which matches with specified selectors</li>
+                            <li><i>querySelectorAll(selectors)</i>	return all elements wchich match with specified selectors</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h1>Now Feel it! Drag any image below into a box</h1>
+                <!-- DRAG IMAGE INTO A BOX -->
+                <div id="eg_box">Drag any image below to this box</div>
+                <span id="eg_bg1"><img src="../images/bg1.png" alt=""></span>
+                <span id="eg_bg2"><img src="../images/bg2.png" alt=""></span>
+                <span id="eg_bg3"><img src="../images/bg3.png" alt=""></span>
+                <h1>How I do it</h1>
+                <p><b>Create a content</b>
+                </p>
+                <pre class="code">
+&ltstyle type="text/css"&gt
+div#eg_box 
+{
+width:100px;
+height:100px;
+display:block;
+border:5px solid #FF0000;	
+}
+&lt/style&gt
+&ltdiv id="eg_box"&gtDrag image below to this box&lt/div&gt
+&ltspan id="eg_bg1"&gt&ltimg src="bg1.png" alt=""&gt&lt/span&gt
+&ltspan id="eg_bg2"&gt&ltimg src="bg2.png" alt=""&gt&lt/span&gt
+&ltspan id="eg_bg3"&gt&ltimg src="bg3.png" alt=""&gt&lt/span&gt
+</pre>
+                <p><b>Force elements to listen events</b>
+                </p>
+                <pre class="code">
+&ltscript&gt
+window.addEventListener('load',onload,false);
+function onLoad(e){
+b1=document.getElementById('eg_bg1');
+b2=document.getElementById('eg_bg2');
+b3=document.getElementById('eg_bg3');
+box=document.getElementById('eg_box');
+b1.addEventListener('dragstart',dragstart, false);
+b2.addEventListener('dragstart',dragstart, false);
+b3.addEventListener('dragstart',dragstart, false);	
+box.addEventListener('dragenter',function(e){e.preventDefault()}, false);
+box.addEventListener('dragover',function(e){e.preventDefault()}, false);
+box.addEventListener('drop',dropped, false);
+}
+function dragstart(e){
+var value=e.currentTarget.innerHTML;
+e.dataTransfer.setData('text',value);
+}
 
-    function dropped(e){
-    e.preventDefault();
-    e.currentTarget.innerHTML= e.dataTransfer.getData('text');
-    }
-    &lt/script&gt
-    </pre>
-                    <h1>Advance : Re-Order List</h1>
-                    <p>Move any item over other and drop to change its order in the list</p>
-                    <!-- DRAG IMAGE REORDER LIST-->
-                    <div id="images">
-                        <span class="eg_image"><img src="../images/bg1.png" alt=""></span>
-                        <span class="eg_image"><img src="../images/bg2.png" alt=""></span>
-                        <span class="eg_image"><img src="../images/bg3.png" alt=""></span>
-                    </div>
-                    <p><b>Source Code</b>
-                    </p>
-                    <pre class="code">
-    &ltstyle type="text/css"&gt
-    div#eg_box 
-    {
-    width:100px;
-    height:100px;
-    display:block;
-    border:5px solid #FF0000;	
-    }
-    &lt/style&gt
-
-    &ltdiv id="images"&gt
-    &ltspan class="eg_image"&gt&ltimg src="bg1.png" alt=""&gt&lt/span&gt
-    &ltspan class="eg_image"&gt&ltimg src="bg2.png" alt=""&gt&lt/span&gt
-    &ltspan class="eg_image"&ltimg src="bg3.png" alt=""&gt&lt/span&gt
-    &ltdiv&gt
-
-    &ltscript&gt
-    window.addEventListener('load',onload,false);
-    function onLoad(e){
-    var images=document.querySelectorAll('#images span.eg_image');
-    for(var i=0; i < images.length; i++){
-        images[i].addEventListener('dragstart',dragstart_reorder, false);		
-        images[i].addEventListener('dragleave',dragleave_reorder, false);
-        images[i].addEventListener('dragenter',function(e){e.preventDefault()}, false);
-        images[i].addEventListener('dragover',dragover_reorder, false);
-        images[i].addEventListener('drop',dropped_reorder, false);
-    }	
-    }
-    var dragged_item;
-    function dragstart_reorder(e){
-    var value=e.currentTarget.innerHTML;
-    dragged_item=e.currentTarget;
-    e.dataTransfer.setData('text',value);
-    }
-    function dragleave_reorder(e){
-    e.preventDefault();	
-    e.currentTarget.style.border="5px solid #FFF";
-    }
-    function dragover_reorder(e){
-    e.preventDefault();	
-    e.currentTarget.style.border="5px dashed #FF0000";
-    }
-    function dropped_reorder(e){	
-    e.preventDefault();
-    dragged_item.innerHTML=e.currentTarget.innerHTML;
-    e.currentTarget.innerHTML=	e.dataTransfer.getData('text');	
-    e.currentTarget.style.border="5px solid #FFF";	
-    }
-    &lt/script&gt
-    </pre>
-                    <h1>Advance : Move File from Desktop into Box</h1>
-                    <p>An indicated box shows information of files moved into it. Try to drag any file on your main screen outside of browsers.</p>
-                    <div id="eg_box_file" style->Drag File in Here</div>
-                    <p><b>Source Code</b>
-                    </p>
-                    <pre class="code">
-    &ltstyle type="text/css"&gt
-    div#eg_box 
-    {
-    width:100px;
-    height:100px;
-    display:block;
-    border:5px solid #FF0000;	
-    }
-    &lt/style&gt
-
-    &ltdiv id="images"&gt
-    &ltspan class="eg_image"&gt&ltimg src="bg1.png" alt=""&gt&lt/span&gt
-    &ltspan class="eg_image"&gt&ltimg src="bg2.png" alt=""&gt&lt/span&gt
-    &ltspan class="eg_image"&ltimg src="bg3.png" alt=""&gt&lt/span&gt
-    &ltdiv&gt
-
-    &ltscript&gt
-    window.addEventListener('load',onload,false);
-    function onLoad(e){
-    file_box=document.getElementById('eg_box_file');
-    file_box.addEventListener('dragenter',function(e){e.preventDefault()}, false);
-    file_box.addEventListener('dragover',function(e){e.preventDefault()}, false);
-    file_box.addEventListener('drop',dropped_file, false);
-    }
-    function dropped_file(e){
-    e.preventDefault();
-    var files=e.dataTransfer.files;
-    var info='';	
-    for(var i=0; i < files.length;i++){		
-        info+='FILE '+ (i+1) + '&ltbr/&gt Name:'+files[i].name+'&ltbr/&gtSize:'+files[i].size+' bytes&ltbr/&gt';
-    }
-    e.currentTarget.innerHTML=info;
-    }
-    &lt/script&gt
-    </pre>
-                    <script>
-                        window.addEventListener('load', onload, false);
-
-                        function onload() {
-                            /* Drag images into a box */
-                            b1 = document.getElementById('eg_bg1');
-                            b2 = document.getElementById('eg_bg2');
-                            b3 = document.getElementById('eg_bg3');
-                            box = document.getElementById('eg_box');
-                            b1.addEventListener('dragstart', dragstart, false);
-                            b2.addEventListener('dragstart', dragstart, false);
-                            b3.addEventListener('dragstart', dragstart, false);
-                            box.addEventListener('dragenter', function(e) {
-                                e.preventDefault()
-                            }, false);
-                            box.addEventListener('dragover', function(e) {
-                                e.preventDefault()
-                            }, false);
-                            box.addEventListener('drop', dropped, false);
-                            /*reorder image*/
-                            var images = document.querySelectorAll('#images span.eg_image');
-                            for (var i = 0; i < images.length; i++) {
-                                images[i].addEventListener('dragstart', dragstart_reorder, false);
-                                images[i].addEventListener('dragenter', function(e) {
-                                    e.preventDefault()
-                                }, false);
-                                images[i].addEventListener('dragleave', dragleave_reorder, false);
-                                images[i].addEventListener('dragover', dragover_reorder, false);
-                                images[i].addEventListener('drop', dropped_reorder, false);
-                            }
-                            //drag file
-                            file_box = document.getElementById('eg_box_file');
-                            file_box.addEventListener('dragenter', function(e) {
-                                e.preventDefault()
-                            }, false);
-                            file_box.addEventListener('dragover', function(e) {
-                                e.preventDefault()
-                            }, false);
-                            file_box.addEventListener('drop', dropped_file, false);
-                        }
-
-                        function dragstart(e) {
-                            var value = e.currentTarget.innerHTML;
-                            e.dataTransfer.setData('text', value);
-                        }
-
-                        function dropped(e) {
-                            e.preventDefault();
-                            e.currentTarget.innerHTML = e.dataTransfer.getData('text');
-                        }
-                        var dragged_item;
-
-                        function dragstart_reorder(e) {
-                            var value = e.currentTarget.innerHTML;
-                            dragged_item = e.currentTarget;
-                            e.dataTransfer.setData('text', value);
-                        }
-
-                        function dragleave_reorder(e) {
-                            e.preventDefault();
-                            e.currentTarget.style.border = "5px solid #FFF";
-                        }
-
-                        function dragover_reorder(e) {
-                            e.preventDefault();
-                            e.currentTarget.style.border = "5px dashed #FF0000";
-                        }
-
-                        function dropped_reorder(e) {
-                            e.preventDefault();
-                            dragged_item.innerHTML = e.currentTarget.innerHTML;
-                            e.currentTarget.innerHTML = e.dataTransfer.getData('text');
-                            e.currentTarget.style.border = "5px solid #FFF";
-                        }
-
-                        function dropped_file(e) {
-                            e.preventDefault();
-                            var files = e.dataTransfer.files;
-                            var info = '';
-                            for (var i = 0; i < files.length; i++) {
-                                info += 'FILE ' + (i + 1) + '<br/> Name:' + files[i].name + '	<br/>	Size:' + files[i].size + ' bytes<br/>';
-                            }
-                            e.currentTarget.innerHTML = info;
-                        }
-                    </script>
+function dropped(e){
+e.preventDefault();
+e.currentTarget.innerHTML= e.dataTransfer.getData('text');
+}
+&lt/script&gt
+</pre>
+                <h1>Advance : Re-Order List</h1>
+                <p>Move any item over other and drop to change its order in the list</p>
+                <!-- DRAG IMAGE REORDER LIST-->
+                <div id="images">
+                    <span class="eg_image"><img src="../images/bg1.png" alt=""></span>
+                    <span class="eg_image"><img src="../images/bg2.png" alt=""></span>
+                    <span class="eg_image"><img src="../images/bg3.png" alt=""></span>
                 </div>
+                <p><b>Source Code</b>
+                </p>
+                <pre class="code">
+&ltstyle type="text/css"&gt
+div#eg_box 
+{
+width:100px;
+height:100px;
+display:block;
+border:5px solid #FF0000;	
+}
+&lt/style&gt
+
+&ltdiv id="images"&gt
+&ltspan class="eg_image"&gt&ltimg src="bg1.png" alt=""&gt&lt/span&gt
+&ltspan class="eg_image"&gt&ltimg src="bg2.png" alt=""&gt&lt/span&gt
+&ltspan class="eg_image"&ltimg src="bg3.png" alt=""&gt&lt/span&gt
+&ltdiv&gt
+
+&ltscript&gt
+window.addEventListener('load',onload,false);
+function onLoad(e){
+var images=document.querySelectorAll('#images span.eg_image');
+for(var i=0; i < images.length; i++){
+    images[i].addEventListener('dragstart',dragstart_reorder, false);		
+    images[i].addEventListener('dragleave',dragleave_reorder, false);
+    images[i].addEventListener('dragenter',function(e){e.preventDefault()}, false);
+    images[i].addEventListener('dragover',dragover_reorder, false);
+    images[i].addEventListener('drop',dropped_reorder, false);
+}	
+}
+var dragged_item;
+function dragstart_reorder(e){
+var value=e.currentTarget.innerHTML;
+dragged_item=e.currentTarget;
+e.dataTransfer.setData('text',value);
+}
+function dragleave_reorder(e){
+e.preventDefault();	
+e.currentTarget.style.border="5px solid #FFF";
+}
+function dragover_reorder(e){
+e.preventDefault();	
+e.currentTarget.style.border="5px dashed #FF0000";
+}
+function dropped_reorder(e){	
+e.preventDefault();
+dragged_item.innerHTML=e.currentTarget.innerHTML;
+e.currentTarget.innerHTML=	e.dataTransfer.getData('text');	
+e.currentTarget.style.border="5px solid #FFF";	
+}
+&lt/script&gt
+</pre>
+                <h1>Advance : Move File from Desktop into Box</h1>
+                <p>An indicated box shows information of files moved into it. Try to drag any file on your main screen outside of browsers.</p>
+                <div id="eg_box_file" style->Drag File in Here</div>
+                <p><b>Source Code</b>
+                </p>
+                <pre class="code">
+&ltstyle type="text/css"&gt
+div#eg_box 
+{
+width:100px;
+height:100px;
+display:block;
+border:5px solid #FF0000;	
+}
+&lt/style&gt
+
+&ltdiv id="images"&gt
+&ltspan class="eg_image"&gt&ltimg src="bg1.png" alt=""&gt&lt/span&gt
+&ltspan class="eg_image"&gt&ltimg src="bg2.png" alt=""&gt&lt/span&gt
+&ltspan class="eg_image"&ltimg src="bg3.png" alt=""&gt&lt/span&gt
+&ltdiv&gt
+
+&ltscript&gt
+window.addEventListener('load',onload,false);
+function onLoad(e){
+file_box=document.getElementById('eg_box_file');
+file_box.addEventListener('dragenter',function(e){e.preventDefault()}, false);
+file_box.addEventListener('dragover',function(e){e.preventDefault()}, false);
+file_box.addEventListener('drop',dropped_file, false);
+}
+function dropped_file(e){
+e.preventDefault();
+var files=e.dataTransfer.files;
+var info='';	
+for(var i=0; i < files.length;i++){		
+    info+='FILE '+ (i+1) + '&ltbr/&gt Name:'+files[i].name+'&ltbr/&gtSize:'+files[i].size+' bytes&ltbr/&gt';
+}
+e.currentTarget.innerHTML=info;
+}
+&lt/script&gt
+</pre>
+                <script>
+                    window.addEventListener('load', onload, false);
+
+                    function onload() {
+                        /* Drag images into a box */
+                        b1 = document.getElementById('eg_bg1');
+                        b2 = document.getElementById('eg_bg2');
+                        b3 = document.getElementById('eg_bg3');
+                        box = document.getElementById('eg_box');
+                        b1.addEventListener('dragstart', dragstart, false);
+                        b2.addEventListener('dragstart', dragstart, false);
+                        b3.addEventListener('dragstart', dragstart, false);
+                        box.addEventListener('dragenter', function(e) {
+                            e.preventDefault()
+                        }, false);
+                        box.addEventListener('dragover', function(e) {
+                            e.preventDefault()
+                        }, false);
+                        box.addEventListener('drop', dropped, false);
+                        /*reorder image*/
+                        var images = document.querySelectorAll('#images span.eg_image');
+                        for (var i = 0; i < images.length; i++) {
+                            images[i].addEventListener('dragstart', dragstart_reorder, false);
+                            images[i].addEventListener('dragenter', function(e) {
+                                e.preventDefault()
+                            }, false);
+                            images[i].addEventListener('dragleave', dragleave_reorder, false);
+                            images[i].addEventListener('dragover', dragover_reorder, false);
+                            images[i].addEventListener('drop', dropped_reorder, false);
+                        }
+                        //drag file
+                        file_box = document.getElementById('eg_box_file');
+                        file_box.addEventListener('dragenter', function(e) {
+                            e.preventDefault()
+                        }, false);
+                        file_box.addEventListener('dragover', function(e) {
+                            e.preventDefault()
+                        }, false);
+                        file_box.addEventListener('drop', dropped_file, false);
+                    }
+
+                    function dragstart(e) {
+                        var value = e.currentTarget.innerHTML;
+                        e.dataTransfer.setData('text', value);
+                    }
+
+                    function dropped(e) {
+                        e.preventDefault();
+                        e.currentTarget.innerHTML = e.dataTransfer.getData('text');
+                    }
+                    var dragged_item;
+
+                    function dragstart_reorder(e) {
+                        var value = e.currentTarget.innerHTML;
+                        dragged_item = e.currentTarget;
+                        e.dataTransfer.setData('text', value);
+                    }
+
+                    function dragleave_reorder(e) {
+                        e.preventDefault();
+                        e.currentTarget.style.border = "5px solid #FFF";
+                    }
+
+                    function dragover_reorder(e) {
+                        e.preventDefault();
+                        e.currentTarget.style.border = "5px dashed #FF0000";
+                    }
+
+                    function dropped_reorder(e) {
+                        e.preventDefault();
+                        dragged_item.innerHTML = e.currentTarget.innerHTML;
+                        e.currentTarget.innerHTML = e.dataTransfer.getData('text');
+                        e.currentTarget.style.border = "5px solid #FFF";
+                    }
+
+                    function dropped_file(e) {
+                        e.preventDefault();
+                        var files = e.dataTransfer.files;
+                        var info = '';
+                        for (var i = 0; i < files.length; i++) {
+                            info += 'FILE ' + (i + 1) + '<br/> Name:' + files[i].name + '	<br/>	Size:' + files[i].size + ' bytes<br/>';
+                        }
+                        e.currentTarget.innerHTML = info;
+                    }
+                </script>
             </div>
+        </div>
     </section>
     <div class="wrapper">
         <div class="round_05" style="background:#fff; padding:0 10px;">
